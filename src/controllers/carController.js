@@ -19,7 +19,18 @@ const addCar = async (req, res) => {
   }
 };
 
+const getCar = async (req, res) => {
+  const carData = await Car.find();
+  //   console.log(carData, "########");
+  //   return res.status(201).json(carData);
+  // } catch (error) {
+  //   console.log(error, "#####ssss###");
+  //   return res.status(500).json({ message: "error" });
+  console.log(carData, "########");
+  return carData;
+};
 // Export controllers
 module.exports = {
   addCar,
+  getCar,
 };
