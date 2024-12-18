@@ -26,7 +26,7 @@ const getCar = async (req, res) => {
   // } catch (error) {
   //   console.log(error, "#####ssss###");
   //   return res.status(500).json({ message: "error" });
-  console.log(carData, "########");
+  console.log(carData, "#######ff#");
   return carData;
 };
 // Export controllers
