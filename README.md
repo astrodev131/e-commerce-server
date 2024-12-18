@@ -1,0 +1,1 @@
+start:npx nodemon src/server.js

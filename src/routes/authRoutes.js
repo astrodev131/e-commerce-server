@@ -9,9 +9,9 @@ const validateRequest = require("../middlewares/validationMiddleware");
 const router = express.Router();
 
 // Register route
-router.post("/register", registerValidation, validateRequest, registerUser);
+router.post("/auth/register", registerValidation, validateRequest, registerUser);
 
 // Login route
-router.post("/login", loginValidation, validateRequest, loginUser);
+router.post("/auth/login", loginValidation, validateRequest, loginUser);
 
 module.exports = router;

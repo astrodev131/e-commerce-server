@@ -15,7 +15,7 @@ app.use(
   })
 );
 // Routes
-app.use("/auth", authRoutes);
+app.use("/", authRoutes);
 
 // Connect to Database and Start Server
 connectDB().then(() => {
