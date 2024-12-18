@@ -2,6 +2,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const carRoutes = require("./routes/carRoutes");
+const bikeRoutes = require("./routes/bikeRoutes");
 const { PORT } = require("./config/env");
 const cors = require("cors");
 
@@ -18,6 +19,7 @@ app.use(
 // Routes
 app.use("/auth", authRoutes);
 app.use("/car", carRoutes);
+app.use("/bike", bikeRoutes);
 
 // Connect to Database and Start Server
 connectDB().then(() => {
