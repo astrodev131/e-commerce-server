@@ -18,8 +18,12 @@ const addBike = async (req, res) => {
     return res.status(500).json({ message: "Error", error: error.message });
   }
 };
-
+const getBike = async (req, res) => {
+  const bikeData = await Bike.find();
+  return res.status(201).json(bikeData);
+};
 // Export controllers
 module.exports = {
   addBike,
+  getBike,
 };
