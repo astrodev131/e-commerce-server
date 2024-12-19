@@ -1,12 +1,13 @@
-const Car = require("../models/carModel");
+const { Car } = require("../models/carModel");
 
+const Book = require("../models/BookModel");
 // @route POST /auth/register
 // @desc Register a new user
 const addCar = async (req, res) => {
   const { name, price, img } = req.body;
 
   try {
-    const newCar = await Car.create({
+    await Car.create({
       name,
       price,
       img,
@@ -40,9 +41,30 @@ const getCarById = async (req, res) => {
       .json({ message: "Error retrieving car", error: error.message });
   }
 };
+
+const bookNow = async (req, res) => {
+  const { name, pickuplocation, date, returndate, payment, status } = req.body;
+
+  try {
+    await Book.create({
+      name,
+      pickuplocation,
+      date,
+      returndate,
+      payment,
+      status,
+    });
+    return res.status(201).json({
+      message: "success",
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Error", error: error.message });
+  }
+};
 // Export controllers
 module.exports = {
   addCar,
   getCar,
   getCarById,
+  bookNow,
 };
