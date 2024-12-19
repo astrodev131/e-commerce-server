@@ -1,5 +1,9 @@
 const express = require("express");
-const { addBike, getBike } = require("../controllers/bikeController");
+const {
+  addBike,
+  getBike,
+  getBikeById,
+} = require("../controllers/bikeController");
 const router = express.Router();
 
 // Register route
@@ -7,5 +11,6 @@ const router = express.Router();
 // Login route
 router.post("/add", addBike);
 router.get("/getdata", getBike);
+router.get("/getdatabyid/:id", getBikeById);
 
 module.exports = router;

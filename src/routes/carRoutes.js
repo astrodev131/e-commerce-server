@@ -1,5 +1,5 @@
 const express = require("express");
-const { addCar, getCar } = require("../controllers/carController");
+const { addCar, getCar, getCarById } = require("../controllers/carController");
 const router = express.Router();
 
 // Register route
@@ -7,5 +7,5 @@ const router = express.Router();
 // Login route
 router.post("/add", addCar);
 router.get("/getdata", getCar);
-
+router.get("/getdatabyid/:id", getCarById);
 module.exports = router;
