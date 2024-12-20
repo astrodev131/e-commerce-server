@@ -40,43 +40,8 @@ const getCarById = async (req, res) => {
       .json({ message: "Error retrieving car", error: error.message });
   }
 };
-
-const bookNow = async (req, res) => {
-  const {
-    username,
-    useremail,
-    name,
-    pickuplocation,
-    date,
-    returndate,
-    payment,
-    status,
-  } = req.body;
-
-  console.log("sdfsdfsdf");
-
-  try {
-    await Book.create({
-      username,
-      useremail,
-      name,
-      pickuplocation,
-      date,
-      returndate,
-      payment,
-      status,
-    });
-    return res.status(201).json({
-      message: "success",
-    });
-  } catch (error) {
-    return res.status(500).json({ message: "Error", error: error.message });
-  }
-};
-// Export controllers
 module.exports = {
   addCar,
   getCar,
   getCarById,
-  bookNow,
 };

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const bookSchema = new mongoose.Schema(
   {
+    sort: { type: String, required: true },
     username: { type: String, required: true },
     useremail: { type: String, required: true },
     name: { type: String, required: true },
@@ -15,4 +16,3 @@ const bookSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Book", bookSchema);
-    
