@@ -1,6 +1,5 @@
-const { Car } = require("../models/carModel");
-
-const Book = require("../models/BookModel");
+const Car = require("../models/carModel");
+const Book = require("../models/bookModel");
 // @route POST /auth/register
 // @desc Register a new user
 const addCar = async (req, res) => {
@@ -43,10 +42,23 @@ const getCarById = async (req, res) => {
 };
 
 const bookNow = async (req, res) => {
-  const { name, pickuplocation, date, returndate, payment, status } = req.body;
+  const {
+    username,
+    useremail,
+    name,
+    pickuplocation,
+    date,
+    returndate,
+    payment,
+    status,
+  } = req.body;
+
+  console.log("sdfsdfsdf");
 
   try {
     await Book.create({
+      username,
+      useremail,
       name,
       pickuplocation,
       date,
