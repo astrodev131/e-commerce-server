@@ -6,7 +6,7 @@ const addBike = async (req, res) => {
   const { name, price, img } = req.body;
 
   try {
-    const newBike = await Bike.create({
+    await Bike.create({
       name,
       price,
       img,

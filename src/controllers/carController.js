@@ -1,12 +1,12 @@
 const Car = require("../models/carModel");
-
+const Book = require("../models/bookModel");
 // @route POST /auth/register
 // @desc Register a new user
 const addCar = async (req, res) => {
   const { name, price, img } = req.body;
 
   try {
-    const newCar = await Car.create({
+    await Car.create({
       name,
       price,
       img,
@@ -40,7 +40,6 @@ const getCarById = async (req, res) => {
       .json({ message: "Error retrieving car", error: error.message });
   }
 };
-// Export controllers
 module.exports = {
   addCar,
   getCar,

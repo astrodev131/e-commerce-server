@@ -3,6 +3,7 @@ const {
   addBike,
   getBike,
   getBikeById,
+  bookNow,
 } = require("../controllers/bikeController");
 const router = express.Router();
 

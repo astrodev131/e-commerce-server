@@ -6,8 +6,12 @@ const User = require("../models/userModel");
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Helper function to generate JWT
-const generateToken = (userId) => {
-  return jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: "1h" });
+const generateToken = (userId, userName, userEmail) => {
+  return jwt.sign(
+    { id: userId, name: userName, email: userEmail },
+    JWT_SECRET,
+    { expiresIn: "1h" }
+  );
 };
 
 // @route POST /auth/register
@@ -33,7 +37,7 @@ const registerUser = async (req, res) => {
     });
 
     // Generate a token
-    const token = generateToken(newUser._id);
+    const token = generateToken(newUser._id, newUser.name, newUser.email);
 
     return res.status(201).json({
       message: "User registered successfully",
@@ -66,7 +70,7 @@ const loginUser = async (req, res) => {
     }
 
     // Generate a token
-    const token = generateToken(user._id);
+    const token = generateToken(user._id, user.name, user.email);
 
     return res.status(200).json({
       message: "Login successful",
