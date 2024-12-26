@@ -1,5 +1,12 @@
 const Book = require("../models/bookModel");
 
+const getBookData = async (req, res) => {
+  const useremail = req.body.useremail;
+  console.log(useremail);
+  const bookData = await Book.find({ useremail });
+  return res.status(201).json(bookData);
+};
+
 const bookNow = async (req, res) => {
   const {
     sort,
@@ -12,8 +19,6 @@ const bookNow = async (req, res) => {
     payment,
     status,
   } = req.body;
-
-  console.log("sdfsdfsdf");
 
   try {
     await Book.create({
@@ -37,4 +42,5 @@ const bookNow = async (req, res) => {
 // Export controllers
 module.exports = {
   bookNow,
+  getBookData,
 };

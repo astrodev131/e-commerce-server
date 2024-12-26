@@ -1,9 +1,10 @@
 const express = require("express");
-const { bookNow } = require("../controllers/carController");
+const { bookNow, getBookData } = require("../controllers/bookingController");
 const router = express.Router();
 
 // Register route
 
 // Login route
-router.post("/", bookNow);
+router.post("/booking", bookNow);
+router.post("/getdata", getBookData);
 module.exports = router;
