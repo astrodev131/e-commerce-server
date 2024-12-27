@@ -10,7 +10,6 @@ const bookSchema = new mongoose.Schema(
     date: { type: String, required: true },
     returndate: { type: String, required: true },
     payment: { type: Number, required: true },
-    status: { type: String, required: true },
   },
   { timestamps: true }
 );
