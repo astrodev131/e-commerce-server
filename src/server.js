@@ -5,7 +5,7 @@ const carRoutes = require("./routes/carRoutes");
 const bikeRoutes = require("./routes/bikeRoutes");
 const { PORT } = require("./config/env");
 const cors = require("cors");
-const { bookNow } = require("./controllers/bookingController");
+const bookNow = require("./routes/bookingRoutes");
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use(
 app.use("/auth", authRoutes);
 app.use("/car", carRoutes);
 app.use("/bike", bikeRoutes);
-app.use("/booknow", bookNow);
+app.use("/book", bookNow);
 
 // Connect to Database and Start Server
 connectDB().then(() => {
